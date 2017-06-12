@@ -1,8 +1,20 @@
 # rcppTests
 
-A repository for testing various aspects of using Rcpp in an R package
+I built this little test package for two reasons:
 
-Benchmark between passing by-value and passing by-reference
+1. Dirk's [comment here](https://stackoverflow.com/a/24113063/5977215) 
+ > But the most important lesson is that you should not just believe what people tell you on the internet, but rather measure and profile whenever possible.
+ 
+2. I can update a vector in a C++ function using `Rcpp`
+
+
+Therefore, I have two functions in this package, `rcppReference` and `rcppValue`, the first updates a vector by-reference, and the second by-value.
+
+
+
+
+Here is a benchmark of how the two functions perform
+
 ```
 
 library(rcppTests)
@@ -12,8 +24,10 @@ n <- 10000
 resValue <- rcppTests::rcppValue(n)
 resReference <- rcppTests::rcppReference(n)
 
-sum(resValue) == sum(resReference)
-# [1] TRUE
+sum(resValue)
+# [1] 5000
+sum(resReference)
+# [1] 5000
 
 library(microbenchmark)
 
@@ -29,3 +43,5 @@ microbenchmark(
 #   ref 51.38387 53.46435 55.39959 54.55089 56.04772 70.77768   100
 
 ```
+
+So there we are, both functions perform as expected, and both perform at about the same speed.

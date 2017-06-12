@@ -8,6 +8,7 @@ rcppReference <- function(vectorSize){
   return(rcppChangeVectorReference(vectorSize))
 }
 
+
 #' rcpp Value
 #'
 #' function to update a logical vector
@@ -16,3 +17,4 @@ rcppReference <- function(vectorSize){
 rcppValue <- function(vectorSize){
   return(rcppChangeVector(vectorSize))
 }
+

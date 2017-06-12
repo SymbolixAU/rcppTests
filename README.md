@@ -5,7 +5,7 @@ I built this little test package for two reasons:
 1. Dirk's [comment here](https://stackoverflow.com/a/24113063/5977215) 
  > But the most important lesson is that you should not just believe what people tell you on the internet, but rather measure and profile whenever possible.
  
-2. I can update a vector in a C++ function using `Rcpp`
+2. I can update a vector by-reference in a C++ function using `Rcpp`
 
 
 Therefore, I have two functions in this package, `rcppReference` and `rcppValue`, the first updates a vector by-reference, and the second by-value.
